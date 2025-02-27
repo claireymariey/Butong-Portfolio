@@ -40,6 +40,15 @@
 		padding: 2rem; 
 	} 
 
+	.education { 
+		flex-direction: column; 
+	} 
+
+	.education .education-text { 
+		padding: 2rem; 
+	} 
+
+
 	.services { 
 		padding: 0; 
 	} 
