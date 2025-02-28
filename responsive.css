@@ -48,7 +48,6 @@
 		padding: 2rem; 
 	} 
 
-
 	.services { 
 		padding: 0; 
 	} 
@@ -124,6 +123,14 @@
 	.about .about-image img { 
 		width: 90%; 
 		padding: 1rem; 
+	} 
+
+	.education { 
+		flex-direction: column; 
+	} 
+
+	.education .education-text { 
+		padding: 2rem; 
 	} 
 
 	.services { 
