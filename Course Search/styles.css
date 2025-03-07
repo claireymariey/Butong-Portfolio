@@ -1,0 +1,109 @@
+.page-content {
+    padding-top: 30px;
+    overflow: hidden;
+}
+
+.card {
+    border: 3px solid teal;
+    border-radius: 5px;
+    width: 70%;
+    margin: 3% auto; /* Center horizontally */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card-header {
+    padding: 1%;
+    font-size: 20px;
+    font-weight: 700;
+    border-bottom: 2px solid rgb(192, 192, 192);
+    text-align: center;
+}
+
+.card-body {
+    padding: 5%;
+    text-align: center;
+    
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.nav {
+    background-color: teal;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center; /* Centers the text links */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    position: fixed; top:0; width:100%; 
+}
+
+.nav li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.nav li a {
+    text-decoration: none;
+    color: white;
+}  
+
+table {
+    width:100%;
+    
+}
+
+.about-image {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+}
+
+.about-image img { 
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    height: 200px; 
+    width: 170px; 
+} 
+/* Style for course table */
+#course-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#course-list th, #course-list td {
+    border: 2px solid #ddd;
+    padding: 10px;
+}
+
+#course-list th {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+}
+
+#course-list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#course-list tr:hover {
+    background-color: #ddd;
+    transition: 0.3s;
+}
+
+#searchBar {
+    width: 97.5%;
+    padding: 10px;
+    margin: px auto;
+    display: block;
+    border: 2px solid teal;
+    border-radius: 5px;
+}
+

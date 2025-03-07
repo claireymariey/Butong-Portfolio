@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects Taken</title>
+    <link rel="stylesheet" href="normalize.css" media="screen">
+    <link rel="stylesheet" href="resets.css" media="screen">
+    <link rel="stylesheet" href="styles.css" media="screen">
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="page-content">
+        <div class="card" id="about">
+            <p class="card-header">About</p>
+            <div class="about-image"> 
+                <img src="claire.jpeg" alt="About Image"> 
+            </div>
+            <p class="card-body">Hello! Hi, I'm Claire Marie Butong, 20 years old, and I live in Gitagum Misamis Oriental. 
+                I'm an enthusiastic and curious person who enjoys exploring new experiences and learning new skills. 
+                In my free time, I love watching movies and films, most of the time surfing through social media. 
+                I’m always open to new opportunities that help me grow and improve both personally and professionally.</p>
+        </div>
+
+        <div class="card" id="courses">
+            <p class="card-header">Courses</p>
+            <div class="card-body" style="padding-top: 10px;">
+                <input type="text" id="searchBar" placeholder="Search courses..." onkeyup="searchCourses()">
+                <table id="course-list">
+                    <thead>
+                        <tr>
+                            <th>Year Level</th>
+                            <th>Semester</th>
+                            <th>Code</th>
+                            <th>Description</th>
+                            <th>Credit</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>        
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const jsonURL = "https://claireymariey.github.io/js-json-activity/courses.json"; // Replace with full URL if hosted online
+        
+                fetch(jsonURL)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        let courseTable = document.querySelector("#course-list tbody");
+        
+                        if (!courseTable) {
+                            console.error("Error: Element with ID 'course-list' not found.");
+                            return;
+                        }
+        
+                        if (data.courses && Array.isArray(data.courses)) {
+                            data.courses.forEach(course => {
+                                let row = document.createElement("tr");
+        
+                                row.innerHTML = `
+                                    <td>${course.year_level}</td>
+                                    <td>${course.sem}</td>
+                                    <td>${course.code}</td>
+                                    <td>${course.description}</td>
+                                    <td>${course.credit}</td>
+                                `;
+        
+                                courseTable.appendChild(row);
+                            });
+                        } else {
+                            console.error("Expected 'courses' array but got:", data);
+                        }
+                    })
+                    .catch(error => console.error("Error fetching JSON:", error));
+            });
+
+            function searchCourses() {
+                let input = document.getElementById("searchBar").value.toLowerCase();
+                let table = document.getElementById("course-list");
+                let rows = table.getElementsByTagName("tr");
+
+                for (let i = 1; i < rows.length; i++) { // Skip header row
+                    let rowText = rows[i].textContent.toLowerCase();
+                    rows[i].style.display = rowText.includes(input) ? "" : "none";
+                }
+            }
+
+        </script>
+               
+
+        <div class="card" id="education">
+            <p class="card-header">Education</p>
+            <p class="card-body">3rd yr BSIT student from University of Science and Technology of Southern Philippines<br>
+            Graduated elementary at  Gitagum Central School<br>
+            Attended high school at Santo Niño High School<br>
+            And graduated senior high school at Alubijid National Comprehensive HS</p>
+        </div>
+        <div class="card" id="skills">
+            <p class="card-header">Skills</p>
+            <p class="card-body">Programming Languages: (Python, Java)<br>
+                Web Development: (HTML, CSS, JavaScript)<br>
+                Networking Basics<br>
+                Software Development<br>
+                Troubleshooting & Problem-Solving<br>
+                IT Support & Technical Assistances</p>
+        </div>
+        <div class="card" id="portfolio">
+            <p class="card-header">Portfolio</p>
+            <p class="card-body"><strong>Projects</strong><br>
+                1. Portfolio Website
+                I built my own portfolio website using HTML, CSS, and JavaScript. It features a responsive design, a dynamic project showcase, and smooth navigation for a great user experience.<br>
+                
+                2. Student List Fetcher
+                A JavaScript project that fetches student data from a JSON file and dynamically displays it on a webpage. This project helped me improve my skills in fetch API, DOM manipulation, and data handling.<br>
+                
+                3. Interactive To-Do List
+                A simple yet effective to-do list app using JavaScript. It allows users to add, delete, and mark tasks as complete. The project also implements local storage to save tasks even after refreshing the page.<br>
+                
+                </p>
+        </div>
+    </div>
+
+</body>
+</html>
